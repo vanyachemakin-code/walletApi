@@ -23,7 +23,7 @@ public class GlobalExceptionHandler {
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<ErrorResponse> handleNotValidJSON(Exception e) {
+    public ResponseEntity<ErrorResponse> handleNotValidJSON(HttpMessageNotReadableException e) {
         return ResponseEntity.status(400)
                 .body(new ErrorResponse("INVALID_JSON", "Check your Request Body."));
     }
